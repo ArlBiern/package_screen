@@ -32,12 +32,12 @@ body {
 .main_cnt {
   min-height: 100vh;
   max-width: 1440px;
-  padding: 2rem;
+  padding: 1rem;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .app_cnt {
@@ -54,7 +54,7 @@ body {
 
 .main_heading {
   color: var(--contrast-color);
-  margin: 3rem;
+  margin: 0.5em;
   text-shadow: 2px 2px 5px var(--darkShadow-color);
   font-size: 3em;
 }
@@ -75,7 +75,7 @@ body {
 
 .info_paragraph {
   font-size: 1em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   text-align: center;
 }
 
@@ -84,7 +84,7 @@ body {
   padding: 0.25em 0.5em;
   border-radius: 0.25em;
   border: none;
-  margin: 2em;
+  margin: 1em;
   background-color: var(--darkContrast-color);
   box-shadow: 1px 1px 5px var(--darkShadow-color);
   font-family: var(--main-font);
