@@ -2,6 +2,7 @@ import welcomeWindow from "./components/welcomeWindow.js";
 import inputDataWindow from "./components/inputDataWindow.js";
 import finalizationWindow from "./components/finalizationWindow.js";
 import validationFunction from "./validation/validationFunction.js";
+import loader from "./components/loader.js";
 import componentSwitch from "./stages/componentSwitch.js";
 
 const appCnt = document.querySelector(".app");
@@ -20,6 +21,10 @@ let stagesInfo = {
   },
   finalization: {
     component: finalizationWindow(),
+    display: false,
+  },
+  loader: {
+    component: loader(),
     display: false,
   },
 };
@@ -68,9 +73,20 @@ const renderContent = (container) => {
           }
 
           if (isDataValid.every((el) => el)) {
-            finishTime = new Date();
-            stagesInfo = componentSwitch(stagesInfo, "finalization");
+            stagesInfo = componentSwitch(stagesInfo, "loader");
             renderContent(appCnt);
+
+            const promise = new Promise((resolve, reject) => {
+              setTimeout(() => {
+                resolve("foo");
+              }, Math.floor(Math.random() * 5000));
+            });
+
+            promise.then(() => {
+              finishTime = new Date();
+              stagesInfo = componentSwitch(stagesInfo, "finalization");
+              renderContent(appCnt);
+            });
           }
 
           isDataValid = [];
@@ -94,6 +110,7 @@ const renderContent = (container) => {
         });
 
         nextPackageButton.addEventListener("click", () => {
+          startTime = new Date();
           stagesInfo = componentSwitch(stagesInfo, "inputData");
           renderContent(appCnt);
         });
