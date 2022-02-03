@@ -1,3 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+
+:root {
+  --dark-color: #262626;
+  --contrast-color: #f21f0c;
+  --lightContrast-color: #bf3326;
+  --darkContrast-color: #8c2c23;
+  --shadow-color: #592722;
+  --darkShadow-color: #111;
+  --light-grey: #555;
+  --light-color: #fff;
+  --main-font: Nunito, "sans-serif";
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 body {
-  background-color: #ccc;
+  background-color: var(--shadow-color);
+  font-family: var(--main-font);
+  font-size: 400;
+  color: var(--light-color);
+}
+
+.main_cnt {
+  min-height: 100vh;
+  max-width: 1440px;
+  padding: 2rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.app_cnt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 80vh;
+  background-color: var(--dark-color);
+  width: 80%;
+  box-shadow: 4px 4px 15px var(--darkShadow-color);
+  border-radius: 20px;
+}
+
+.main_heading {
+  color: var(--contrast-color);
+  margin: 3rem;
+  text-shadow: 2px 2px 5px var(--darkShadow-color);
+  font-size: 3em;
+}
+
+.app {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.info_heading {
+  font-size: 1.25em;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.info_paragraph {
+  font-size: 1em;
+  margin-bottom: 2em;
+}
+
+.button {
+  font-size: 1.75em;
+  padding: 0.25em 0.5em;
+  border-radius: 0.25em;
+  border: none;
+  margin: 2em;
+  background-color: var(--darkContrast-color);
+  box-shadow: 1px 1px 5px var(--darkShadow-color);
+  font-family: var(--main-font);
+  color: var(--light-color);
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: ease-in-out 0.25s;
+}
+
+.button:hover {
+  background-color: var(--light-grey);
+  box-shadow: 0px 0px 20px var(--light-color);
+}
+
+.button:active {
+  background-color: var(--light-color);
+  color: var(--darkShadow-color);
 }
