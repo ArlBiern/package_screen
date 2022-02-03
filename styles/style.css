@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
 @import "loader.css";
+@import "form.css";
+@import "modal.css";
 
 :root {
   --dark-color: #262626;
@@ -24,6 +26,7 @@ body {
   font-family: var(--main-font);
   font-size: 400;
   color: var(--light-color);
+  min-width: 280px;
 }
 
 .main_cnt {
@@ -73,6 +76,7 @@ body {
 .info_paragraph {
   font-size: 1em;
   margin-bottom: 2em;
+  text-align: center;
 }
 
 .button {
@@ -100,80 +104,33 @@ body {
   color: var(--darkShadow-color);
 }
 
-.form {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 1em;
+@media only screen and (max-width: 1200px) {
+  .main_cnt {
+    font-size: 1.5rem;
+  }
+
+  .button:hover {
+    box-shadow: 0px 0px 10px var(--light-color);
+  }
 }
 
-.input_cnt {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 48%;
+@media only screen and (max-width: 650px) {
+  .main_cnt {
+    font-size: 1.25rem;
+  }
+
+  .app_cnt {
+    min-height: 65vh;
+    width: 100%;
+  }
+
+  .button:hover {
+    box-shadow: 0px 0px 6px var(--light-color);
+  }
 }
 
-.input_field {
-  margin-top: 1em;
-  font-size: 1em;
-  font-weight: 700;
-  line-height: 1.75em;
-  text-align: center;
-  width: 55%;
-  border: none;
-  border-radius: 5px;
-}
-
-.error_info {
-  color: var(--contrast-color);
-  font-size: 0.675em;
-  text-align: center;
-  height: 3em;
-  padding-top: 0.25em;
-}
-
-.button.inputButton {
-  margin-top: 1em;
-}
-
-.modal {
-  background-color: rgba(255, 255, 255, 0.2);
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal_cnt {
-  background-color: var(--dark-color);
-  border-radius: 20px;
-  padding: 1.5em;
-  width: 70%;
-  max-height: 70vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.finalButton_cnt {
-  display: flex;
-  justify-content: space-around;
-  width: 90%;
-}
-
-.finalButton_cnt .button {
-  margin: 1em 0;
-  font-size: 1.25em;
-  width: 40%;
-  line-height: 1em;
-}
-
-.modal_cnt .info_paragraph:first-of-type {
-  margin: 1em 0 0.25em;
+@media only screen and (max-width: 400px) {
+  .main_cnt {
+    font-size: 1rem;
+  }
 }

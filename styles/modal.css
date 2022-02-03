@@ -1,0 +1,73 @@
+.modal {
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.modal_cnt {
+  background-color: var(--dark-color);
+  border-radius: 20px;
+  padding: 1.5em;
+  width: 70%;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.finalButton_cnt {
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+}
+
+.finalButton_cnt .button {
+  margin: 1em 0;
+  font-size: 1.25em;
+  width: 40%;
+  line-height: 1em;
+}
+
+.modal_cnt .info_paragraph:first-of-type {
+  margin: 1em 0 0.25em;
+}
+
+@media only screen and (max-width: 1400px) {
+  .finalButton_cnt {
+    width: 100%;
+  }
+
+  .finalButton_cnt .button {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .finalButton_cnt .button {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .finalButton_cnt {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .finalButton_cnt .button {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .finalButton_cnt .button {
+    width: 100%;
+  }
+}

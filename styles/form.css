@@ -1,0 +1,110 @@
+.form {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1em;
+}
+
+.input_cnt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 48%;
+}
+
+.input_field {
+  margin-top: 1em;
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 1.75em;
+  text-align: center;
+  width: 55%;
+  border: none;
+  border-radius: 5px;
+}
+
+.error_info {
+  color: var(--contrast-color);
+  font-size: 0.675em;
+  text-align: center;
+  height: 3em;
+  padding-top: 0.25em;
+}
+
+.button.inputButton {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
+@media only screen and (max-width: 1200px) {
+  .input_field {
+    width: 75%;
+  }
+
+  .button.inputButton {
+    margin-top: 1em;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .error_info {
+    width: 90%;
+  }
+
+  .button.inputButton {
+    font-size: 1.375em;
+  }
+
+  .input_field {
+    margin-top: 0.5em;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .button.inputButton {
+    margin-top: 1.5em;
+  }
+
+  .input_field {
+    width: 90%;
+  }
+
+  .input_label {
+    font-size: 0.875em;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .form {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .input_cnt {
+    width: 100%;
+  }
+
+  .input_field {
+    width: 60%;
+    margin-top: 0.25em;
+  }
+
+  .input_label {
+    margin-top: 1em;
+  }
+
+  .error_info {
+    width: 100%;
+  }
+
+  .button.inputButton {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .button.inputButton {
+    font-size: 1em;
+  }
+}
