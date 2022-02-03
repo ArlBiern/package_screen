@@ -98,3 +98,40 @@ body {
   background-color: var(--light-color);
   color: var(--darkShadow-color);
 }
+
+.form {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1em;
+}
+
+.input_cnt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 48%;
+}
+
+.input_field {
+  margin-top: 1em;
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 1.75em;
+  text-align: center;
+  width: 55%;
+  border: none;
+  border-radius: 5px;
+}
+
+.error_info {
+  color: var(--contrast-color);
+  font-size: 0.675em;
+  text-align: center;
+  height: 3em;
+  padding-top: 0.25em;
+}
+
+.button.inputButton {
+  margin-top: 1em;
+}
