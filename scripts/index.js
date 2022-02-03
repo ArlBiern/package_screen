@@ -2,44 +2,46 @@ import welcomeWindow from "./components/welcomeWindow.js";
 import inputDataWindow from "./components/inputDataWindow.js";
 import finalizationWindow from "./components/finalizationWindow.js";
 import validationFunction from "./validation/validationFunction.js";
+import componentSwitch from "./stages/componentSwitch.js";
 
 const appCnt = document.querySelector(".app");
 let isDataValid = [];
+let startTime;
+let finishTime;
 
-const stagesInfo = {
+let stagesInfo = {
   welcome: {
     component: welcomeWindow(),
-    modal: false,
     display: true,
   },
   inputData: {
     component: inputDataWindow(),
-    modal: false,
     display: false,
   },
   finalization: {
     component: finalizationWindow(),
-    modal: true,
     display: false,
   },
 };
 
 const renderContent = (container) => {
+  container.innerHTML = "";
   for (let component in stagesInfo) {
     if (stagesInfo[component].display) {
-      container.innerHTML = stagesInfo[component].component;
-      const button = container.querySelector(".button");
+      container.innerHTML += stagesInfo[component].component;
 
-      if (button.dataset.stage === "welcome") {
+      if (component === "welcome") {
+        const button = container.querySelector(".button");
+
         button.addEventListener("click", () => {
-          stagesInfo.welcome.display = false;
-          stagesInfo.inputData.display = true;
-          stagesInfo.finalization.display = false;
+          startTime = new Date();
+          stagesInfo = componentSwitch(stagesInfo, "inputData");
           renderContent(appCnt);
         });
       }
 
-      if (button.dataset.stage === "input") {
+      if (component === "inputData") {
+        const button = container.querySelector(".button");
         const validationFields = {
           phone: container.querySelector("#phone"),
           code: container.querySelector("#code"),
@@ -66,13 +68,34 @@ const renderContent = (container) => {
           }
 
           if (isDataValid.every((el) => el)) {
-            stagesInfo.welcome.display = false;
-            stagesInfo.inputData.display = false;
-            stagesInfo.finalization.display = true;
+            finishTime = new Date();
+            stagesInfo = componentSwitch(stagesInfo, "finalization");
             renderContent(appCnt);
           }
 
           isDataValid = [];
+        });
+      }
+
+      if (component === "finalization") {
+        const finnishButton = container.querySelector('[data-stage="finnish"]');
+        const nextPackageButton = container.querySelector(
+          '[data-stage="nextPackage"]'
+        );
+
+        const timeInfo = container.querySelector('[data-time="time"]');
+        timeInfo.innerText += ` ${Math.floor(
+          (finishTime - startTime) / 1000
+        )} sekund.`;
+
+        finnishButton.addEventListener("click", () => {
+          stagesInfo = componentSwitch(stagesInfo, "welcome");
+          renderContent(appCnt);
+        });
+
+        nextPackageButton.addEventListener("click", () => {
+          stagesInfo = componentSwitch(stagesInfo, "inputData");
+          renderContent(appCnt);
         });
       }
     }

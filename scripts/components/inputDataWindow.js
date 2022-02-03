@@ -13,7 +13,7 @@ const inputDataWindow = () => {
         <p class="error_info"></p>
       </div>
     </form>
-    <button class="button inputButton" data-stage="input">Odbierz paczkę</button>
+    <button class="button inputButton">Odbierz paczkę</button>
   `;
 
   return htmlContent;
